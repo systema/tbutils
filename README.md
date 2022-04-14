@@ -1,4 +1,4 @@
-# tb-utils 
+# tbutils 
 
 
 An Java/Kotlin library of utilities for IIoT applications using the [ThingsBoard IoT platform](https://thingsboard.io).
