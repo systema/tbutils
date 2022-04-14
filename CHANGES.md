@@ -1,6 +1,6 @@
 # Changes
 
-# v2.0.1-SNAPSHOT
+# v2.0.1
 
 * included user config features
 * config loading: more expressive Exceptions, minor refactoring

@@ -9,7 +9,7 @@
 project definition.
 
 ```gradle
-implementation "com.systema.eia.iot:tb-utils:2.0.0"
+implementation "com.systema.eia.iot:tb-utils:2.0.1"
 ```
 
 Builds are hosted on [maven-central](https://search.maven.org/search?q=a:tbutils) supported by the great folks at [sonatype](https://www.sonatype.com/).

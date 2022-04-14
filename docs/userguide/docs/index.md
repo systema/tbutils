@@ -1,7 +1,6 @@
 # Welcome to `tbutils`
 
-[ ![Download](https://img.shields.io/github/v/release/systema/tbutils) ](https://github.com/systema/tbutils/releases)  [![Build Status](https://github.com/systema/tbutils/workflows/build/badge.svg)](https://github.com/systema/tbutils/actions?query=workflow%3Abuild)  
-[![github-discussions](https://img.shields.io/badge/discuss-tbutils-orange)](https://github.com/systema/tbutils/discussions)
+[ ![Download](https://img.shields.io/github/v/release/systema/tbutils) ](https://github.com/systema/tbutils/releases)  [![Build Status](https://github.com/systema/tbutils/workflows/build/badge.svg)](https://github.com/systema/tbutils/actions?query=workflow%3Abuild) [![github-discussions](https://img.shields.io/badge/discuss-tbutils-orange)](https://github.com/systema/tbutils/discussions)
 
 
 
@@ -49,3 +48,8 @@ We always welcome pull requests. :-)
 
 Feel welcome to post questions and ideas in the project's [discussion forum](https://github.com/systema/tbutils/discussions)
 
+## Sponsor
+
+`tbutils` is devloped and sponsored by [SYSTEMA - Art of
+Automation GmbH](https://www.systema.com/).
+[![](images/systema.png)](https://www.systema.com/)
