@@ -1,0 +1,15 @@
+{
+  "id" : {
+    "entityType" : "WIDGETS_BUNDLE",
+    "id" : "29e0e820-de99-11eb-baa1-137bb35ea56e"
+  },
+  "createdTime" : 1620724196046,
+  "tenantId" : {
+    "entityType" : "TENANT",
+    "id" : "91a674d0-b238-11eb-bd03-edb9e40be40b"
+  },
+  "alias" : "alarm_widgets1",
+  "title" : "Systema Widgets",
+  "image" : null,
+  "description" : null
+}

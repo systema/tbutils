@@ -1,0 +1,41 @@
+{
+  "additionalConfigs" : {
+    "defaultRuleChain" : "Vibration Root Rule Chain"
+  },
+  "config" : {
+    "id" : {
+      "entityType" : "DEVICE_PROFILE",
+      "id" : "a3a61920-8c1b-11ec-9a08-e74a7bdcab6e"
+    },
+    "createdTime" : 1620724195049,
+    "tenantId" : {
+      "entityType" : "TENANT",
+      "id" : "9f8f5860-8c1b-11ec-9a08-e74a7bdcab6e"
+    },
+    "name" : "vibration-device-profile",
+    "description" : "",
+    "type" : "DEFAULT",
+    "transportType" : "DEFAULT",
+    "provisionType" : "DISABLED",
+    "defaultRuleChainId" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "a36fc6e0-8c1b-11ec-9a08-e74a7bdcab6e"
+    },
+    "defaultQueueName" : null,
+    "profileData" : {
+      "configuration" : {
+        "type" : "DEFAULT"
+      },
+      "transportConfiguration" : {
+        "type" : "DEFAULT"
+      },
+      "provisionConfiguration" : {
+        "type" : "DISABLED",
+        "provisionDeviceSecret" : null
+      },
+      "alarms" : null
+    },
+    "provisionDeviceKey" : null,
+    "default" : false
+  }
+}

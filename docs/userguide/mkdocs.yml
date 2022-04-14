@@ -1,0 +1,78 @@
+site_name: tbutils
+
+site_url: https://www.systema.com
+site_author: SYSTEMA GmbH
+site_description: >-
+  Develop IIoT Applications at ease with ThingBoard
+repo_name: systema/tbutils
+repo_url: https://github.com/systema/tbutils
+edit_uri: "tree/master/docs/userguide/docs"
+
+# Copyright
+copyright: Copyright &copy; 2022 Systema GmbH
+
+theme:
+  name: material
+#  highlightjs: true
+#  hljs_languages:
+#    - kotlin
+#  navigation_depth: 3
+  features:
+    - navigation.expand
+    - navigation.instant
+    - navigation.tabs
+
+nav:
+  - Home:
+    - Introduction: index.md
+    - Setup: setup.md
+    - FAQ: faq.md
+    - What's New?: changes.md
+
+  - Connectivity:
+    - connectivity.md
+
+  - Configuration:
+    - configuration.md
+
+  - Utilities:
+    - misc.md
+
+  - Examples:
+    - examples.md
+
+  - About:
+    - about.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/systema
+#    - icon: fontawesome/brands/twitter
+#      link: https://twitter.com/holgerbrandl
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/systema-gmbh/
+
+# adopted from https://github.com/squidfunk/mkdocs-material/issues/748
+extra_css:
+  - 'stylesheets/extra.css'
+  -
+markdown_extensions:
+  - markdown_include.include:
+#      base_path: ../../examples
+      base_path: ../../src/test/java/com/systema/eia/iot/tb/examples
+  - footnotes
+  - admonition
+  - attr_list
+  - pymdownx.highlight:
+#      linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+            #extra_css:
+          #  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
+extra_javascript:
+  - https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js

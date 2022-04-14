@@ -1,0 +1,56 @@
+version: '2.2'
+services:
+  thingsboard:
+    restart: always
+    image: "thingsboard/tb-postgres:3.3.4"
+#    container_name: "mytb"
+    healthcheck:
+      # test command is executed inside container -> use internal TB port
+      test: curl http://localhost:9090 || exit 1
+      # adapt timing settings, if necessary
+      interval: 30s
+      # start_period: 90s not supported in compose v2
+      timeout: 5s
+      retries: 10
+    ports:
+      ## Change host ports / uncomment if necessary
+      # HTTP
+      - "9090:9090"
+      # MQTT
+#      - "1883:1883"
+      # edge RPC
+#      - "7070:7070"
+      # 5683-5684: CoAP, 5685-5688: LwM2M (light-weight IoT protocols)
+#      - "5683-5688:5683-5688/udp"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+
+  iot-app:
+    build: "./iot-app"
+    environment:
+      TB_HOST: ${TB_HOST}
+      TB_REST_PORT: ${TB_REST_PORT}
+      TB_USER: ${TB_USER}
+      TB_PW: ${TB_PW}
+      DEVICE_PROFILE: ${DEVICE_PROFILE}
+    depends_on:
+      thingsboard:
+        condition: service_healthy
+
+  device-simulator:
+    build: "./device-simulator"
+    scale: 3
+    environment:
+      TB_HOST: ${TB_HOST}
+      TB_REST_PORT: ${TB_REST_PORT}
+      TB_MQTT_PORT: ${TB_MQTT_PORT}
+      TB_USER: ${TB_USER}
+      TB_PW: ${TB_PW}
+      DEVICE_NAME: simulated-device
+      DEVICE_PROFILE: ${DEVICE_PROFILE}
+      SAMPLE_FREQ: 1
+    depends_on:
+      thingsboard:
+        condition: service_healthy
+      iot-app:
+        condition: service_healthy

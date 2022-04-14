@@ -1,0 +1,26 @@
+{
+  "id" : {
+    "entityType" : "WIDGET_TYPE",
+    "id" : "a3ed5b50-8c1b-11ec-9a08-e74a7bdcab6e"
+  },
+  "createdTime" : 1626430287297,
+  "tenantId" : {
+    "entityType" : "TENANT",
+    "id" : "9f8f5860-8c1b-11ec-9a08-e74a7bdcab6e"
+  },
+  "bundleAlias" : "alarm_widgets1",
+  "alias" : "change_device_alias",
+  "name" : "Change Device",
+  "descriptor" : {
+    "type" : "rpc",
+    "sizeX" : 6,
+    "sizeY" : 4,
+    "resources" : [ ],
+    "templateHtml" : " <div class=\"mat-content mat-padding\" fxLayout=\"column\">\r\n\r\n \r\n<mat-form-field required appearance=\"fill\">\r\n <mat-label>Choose an option</mat-label>\r\n <mat-select [(ngModel)]=\"xdkname\" >\r\n <mat-option *ngFor=\"let name of deviceNamesArr\" [value]=\"name\">\r\n {{name}}\r\n </mat-option>\r\n </mat-select>\r\n</mat-form-field>\r\n \r\n <button (click)=\"updateAlias()\" mat-raised-button color=\"primary\" type=\"submit\" >\r\n Update\r\n </button>\r\n </div>\r\n\r\n ",
+    "templateCss" : "",
+    "controllerScript" : "\nself.onInit = function() {\n console.log(self.ctx)\n var widgetContext = self.ctx\n var $injector = widgetContext.$scope.$injector\n \n var aliasController = widgetContext.dashboard.aliasController\n var stateController = widgetContext.dashboard.stateController\n var deviceService = widgetContext.deviceService\n var deviceNames = []\n var deviceProfile = self.ctx.settings.deviceProfile\n var request = \"/api/tenant/deviceInfos\"\n \n if(typeof deviceProfile === 'undefined'){\n request += \"?pageSize=10000&page=0\"\n }else{\n request += \"?type=\" + deviceProfile + \"&pageSize=10000&page=0\"\n }\n \n deviceService.http.get(request).subscribe(function(types){ \n var data = types.data\n deviceNames = []\n var i;\n for (i = 0; i < data.length; i++) {\n deviceNames.push(data[i].name)\n }\n deviceNames.sort()\n self.ctx.$scope.deviceNamesArr=deviceNames\n\n })\n \n \n self.ctx.$scope.updateAlias = function() {\n\n console.log(deviceProfile)\n\n var inputDevice = undefined\n \n var singleAliasDeviceId=widgetContext.defaultSubscription.targetDeviceAliasId\n var deviceIdInput = widgetContext.$scope.deviceId\n var deviceNameInput = widgetContext.$scope.xdkname\n\n \n deviceService.findByName(deviceNameInput).subscribe(function(device){\n // console.log(device)\n inputDevice = device\n var currentAlias = aliasController.getEntityAliases()\n currentAlias[singleAliasDeviceId].filter.singleEntity.id=device.id.id\n aliasController.updateEntityAliases(currentAlias)\n widgetContext.updateAliases();\n // console.log(aliasController.getEntityAliases()[singleAliasDeviceId])\n });\n\n // console.log(widgetContext)\n\n }\n}\n\nself.onDestroy = function() {\n}\n\n",
+    "settingsSchema" : "{\n \"schema\": {\n \"type\": \"object\",\n \"title\": \"ChangeAliasSetting\",\n \"properties\": {\n \"deviceProfile\": {\n \"title\": \"Device profile filter\",\n \"type\": \"string\",\n \"default\": \"\"\n }\n },\n \"required\": []\n },\n \"form\": [\n \"deviceProfile\"\n ]\n}",
+    "dataKeySettingsSchema" : "{}\n",
+    "defaultConfig" : "{\"targetDeviceAliases\":[],\"showTitle\":true,\"backgroundColor\":\"#fff\",\"color\":\"rgba(0, 0, 0, 0.87)\",\"padding\":\"0px\",\"settings\":{\"deviceProfile\":\"xdk\"},\"title\":\"Change Device Alias\",\"targetDeviceAliasIds\":[\"0325fb67-7213-a0c9-9f68-28ee5976e1a7\"]}"
+  }
+}

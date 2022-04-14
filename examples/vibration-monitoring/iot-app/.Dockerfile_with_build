@@ -1,0 +1,13 @@
+FROM adoptopenjdk/openjdk11:jdk-11.0.8_10-debian-slim
+
+WORKDIR /app/
+
+COPY ./ ./
+
+RUN chmod +x ./gradlew
+
+# defer compilation to build time (which is optional)
+RUN ./gradlew build -x test
+
+#CMD ["./gradlew", "run"]
+ENTRYPOINT echo "credentials ${TB_URL} ${TB_PW} ${TB_USER}" && ./gradlew run --args="--thingsboard-url ${TB_URL} --user ${TB_USER} --password ${TB_PW} --device ${DEVICE_NAME}"

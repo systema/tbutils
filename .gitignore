@@ -1,0 +1,20 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+.idea
+# Ignore Gradle build output directory
+build
+bin/
+.classpath
+.settings/
+.project
+src/test/resources/testbackup
+src/test/resources/backup
+paho-tcp/
+
+out
+
+# file created by the vibration example iot app to signal it's up
+*UP
+
+*~*
+*$*

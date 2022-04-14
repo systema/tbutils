@@ -1,0 +1,35 @@
+{
+  "id" : {
+    "entityType" : "DEVICE",
+    "id" : "1cd62b90-b021-11ec-a25c-4bbb5d01bf98"
+  },
+  "createdTime" : 1648641680585,
+  "additionalInfo" : {
+    "gateway" : false,
+    "overwriteActivityTime" : false,
+    "description" : "To register for dashboard widgets"
+  },
+  "tenantId" : {
+    "entityType" : "TENANT",
+    "id" : "7c64d360-b01f-11ec-a25c-4bbb5d01bf98"
+  },
+  "customerId" : {
+    "entityType" : "CUSTOMER",
+    "id" : "13814000-1dd2-11b2-8080-808080808080"
+  },
+  "name" : "Default Vibration Device",
+  "type" : "vibration-device-profile",
+  "label" : "",
+  "deviceProfileId" : {
+    "entityType" : "DEVICE_PROFILE",
+    "id" : "7e19fd70-b01f-11ec-a25c-4bbb5d01bf98"
+  },
+  "deviceData" : {
+    "configuration" : {
+      "type" : "DEFAULT"
+    },
+    "transportConfiguration" : {
+      "type" : "DEFAULT"
+    }
+  }
+}
