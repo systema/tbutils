@@ -9,7 +9,26 @@
 project definition.
 
 ```gradle
-implementation "com.systema.eia.iot:tb-utils:2.0.1"
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://repo.thingsboard.io/artifactory/libs-release-public")
+    }
+    
+    maven {
+        url = uri("https://maven.pkg.github.com/systema/tbutils")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("GH_USER")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("GH_TOKEN")
+        }
+    }
+}
+
+
+dependencies {
+    implementation "com.systema.eia.iot:tbutils:2.0.2"
+}
 ```
 
 Builds are hosted on [maven-central](https://search.maven.org/search?q=a:tbutils) supported by the great folks at [sonatype](https://www.sonatype.com/).

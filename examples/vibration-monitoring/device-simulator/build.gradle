@@ -7,9 +7,6 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
-    // todo remove for release
-    id 'org.sonarqube' version '2.8'
-
     id 'application'
 }
 
@@ -25,24 +22,20 @@ repositories {
         url "https://repo.thingsboard.io/artifactory/libs-release-public"
     }
 
-    //TODO: change to public tb-utils repo
-    maven{
-        url "https://nexus01.dd.systemagmbh.de/repository/maven-releases"
+    maven {
+        url "https://maven.pkg.github.com/systema/tbutils"
         credentials {
-            username = nexus_username
-            password = nexus_password
+            username = project.findProperty("gpr.user") ?: System.getenv("GH_USER")
+            password = project.findProperty("gpr.key")  ?: System.getenv("GH_TOKEN")
         }
-
     }
 
     // needed to resolve snapshot dependencies during development
-    mavenLocal()
+//    mavenLocal()
 }
 
-
 dependencies {
-    //TODO: update to latest version
-    implementation("com.systema.eia.iot:tb-utils:v2.0.1-SNAPSHOT")
+    implementation("com.systema.eia.iot:tbutils:v2.0.2")
 
     compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
     compile 'com.github.ajalt:clikt:2.7.1'

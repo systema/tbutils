@@ -40,5 +40,5 @@ git push origin
 git push origin --tags
 
 ## Build and publish the binary release to nexus
-#./gradlew publish
+./gradlew publish
 ```
