@@ -40,31 +40,5 @@ git push origin
 git push origin --tags
 
 ## Build and publish the binary release to nexus
-./gradlew publish
-```
-
-
-## Nexus Profile Configuration
-[//]: # (todo remove this prior to github publication)
-
-Make sure that system setting are ready
-
-```bash
-λ cat ~/.gradle/init.d/nexusConfig.gradle
-allprojects{
-  ext {
-    nexus_repository_release_url=https://nexus01/repository/maven-releases/
-    nexus_repository_snapshot_url=https://nexus01/repository/maven-snapshots/
-    nexus_repository_read_url=https://nexus01/repository/maven-public
-
-    nexus_repository_release_playground_url=https://nexus01/repository/playground-releases/
-    nexus_repository_snapshot_playground_url=https://nexus01/repository/playground-snapshots/
-
-    nexus_repository_npm_url=https://nexus01/repository/npm-public/
-    nexus_repository_nodejs_url=https://nexus01/repository/nodejs-dist/
-
-    nexus_username=ask-HRa
-    nexus_password=ask-HRa
-  }
-}
+#./gradlew publish
 ```
