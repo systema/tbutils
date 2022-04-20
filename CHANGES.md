@@ -22,7 +22,7 @@
 * **!!! BREAKING CHANGES !!!**
   * removed SYSTEMA dependencies
     * logging: 
-      * replaced SYSTEMA logging with slf4j facade (for an adapter implementation see http://svndd.dd.systemagmbh.de/svnrepos/Users/Schmiedgen.Olaf/slf4j-systema/trunk and https://nexus01/#browse/search=keyword%3Dslf4j:d53e2dde3edbeb1e8e382f915378219f)
+      * replaced SYSTEMA logging with slf4j facade 
       * moved LogHelper class to external repo (iot-utils?)
     * exceptions: 
       * moved IotException class to external repo (iot-utils?)
